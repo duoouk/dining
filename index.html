@@ -1,152 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Private Dining Club</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #1e3a8a;
-      background-color: #ffffff;
-    }
-    header {
-      background-color: #2563eb;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      margin-left: 1rem;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    .hero-content {
-      background-color: rgba(30, 58, 138, 0.7);
-      padding: 2rem;
-      border-radius: 1rem;
-    }
-    section {
-      padding: 4rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 0.5rem;
-      flex: 1;
-      min-width: 250px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 0.375rem;
-    }
-    form button {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.375rem;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #1d4ed8;
-    }
-    footer {
-      background-color: #2563eb;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 1rem;
-    }
-  </style>
-</head>
-<body>
+import React, { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Menu } from "lucide-react";
 
-<header>
-  <h1>The Private Dining Club</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+export default function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h2>Luxury Outdoor Catering in Kent</h2>
-    <p>Experience unforgettable dining in elegant outdoor settings</p>
-  </div>
-</section>
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+  }, []);
 
-<section id="about">
-  <h3>About Us</h3>
-  <p style="text-align:center;">
-    The Private Dining Club offers a luxurious outdoor catering experience for private events, celebrations, and corporate functions across Kent. We specialize in fine cuisine, elegant service, and unforgettable memories.
-  </p>
-</section>
+  return (
+    <div className="min-h-screen bg-white text-blue-900">
+      {/* Header */}
+      <header className="bg-blue-600 text-white p-6 shadow-lg">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+            <h1 className="text-2xl font-bold">The Private Dining Club</h1>
+          </div>
+          <div className="md:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              <Menu size={28} />
+            </button>
+          </div>
+          <nav className="hidden md:flex space-x-6">
+            <a href="#home" className="hover:underline">Home</a>
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#services" className="hover:underline">Services</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+          </nav>
+        </div>
+        {menuOpen && (
+          <div className="md:hidden mt-4 space-y-2 text-center">
+            <a href="#home" className="block hover:underline">Home</a>
+            <a href="#about" className="block hover:underline">About</a>
+            <a href="#services" className="block hover:underline">Services</a>
+            <a href="#contact" className="block hover:underline">Contact</a>
+          </div>
+        )}
+      </header>
 
-<section id="services" style="background-color:#eff6ff;">
-  <h3>Our Services</h3>
-  <div class="services">
-    <div class="card">
-      <h4>Private Events</h4>
-      <p>Celebrate special occasions with elegance and style in our curated outdoor dining setups.</p>
+      {/* Hero Section */}
+      <section id="home" className="bg-cover bg-center h-[60vh] flex items-center justify-center text-white text-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1504674900247-0877df9cc836")' }}>
+        <div className="bg-blue-900 bg-opacity-70 p-10 rounded-xl">
+          <h2 className="text-4xl font-bold mb-4">Luxury Outdoor Catering in Kent</h2>
+          <p className="text-xl">Experience unforgettable dining in elegant outdoor settings</p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 max-w-5xl mx-auto">
+        <h3 className="text-3xl font-bold text-center mb-8">About Us</h3>
+        <p className="text-lg text-center">
+          The Private Dining Club offers a luxurious outdoor catering experience for private events, celebrations, and corporate functions across Kent. We specialize in fine cuisine, elegant service, and unforgettable memories.
+        </p>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="bg-blue-50 py-16 px-4">
+        <h3 className="text-3xl font-bold text-center mb-10">Our Services</h3>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardContent className="p-6">
+              <h4 className="text-xl font-semibold mb-2">Private Events</h4>
+              <p>Celebrate special occasions with elegance and style in our curated outdoor dining setups.</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h4 className="text-xl font-semibold mb-2">Corporate Functions</h4>
+              <p>Impress your guests with gourmet catering and seamless event service.</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h4 className="text-xl font-semibold mb-2">Tailored Menus</h4>
+              <p>Custom dining experiences with bespoke menus designed by our chefs.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 px-4 max-w-3xl mx-auto">
+        <h3 className="text-3xl font-bold text-center mb-8">Contact Us</h3>
+        <div className="space-y-4 mb-8 text-center">
+          <p className="flex items-center justify-center gap-2"><MapPin size={20}/> Kent, United Kingdom</p>
+          <p className="flex items-center justify-center gap-2"><Phone size={20}/> 01234 567890</p>
+          <p className="flex items-center justify-center gap-2"><Mail size={20}/> <a href="mailto:info@duoo.co.uk" className="underline text-blue-800">info@duoo.co.uk</a></p>
+        </div>
+        <form className="space-y-4">
+          <Input placeholder="Your Name" required />
+          <Input type="email" placeholder="Your Email" required />
+          <Textarea placeholder="Your Message" rows={5} required />
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white">Send Message</Button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-600 text-white text-center py-6 mt-10">
+        <p>&copy; {new Date().getFullYear()} The Private Dining Club. All rights reserved.</p>
+      </footer>
     </div>
-    <div class="card">
-      <h4>Corporate Functions</h4>
-      <p>Impress your guests with gourmet catering and seamless event service.</p>
-    </div>
-    <div class="card">
-      <h4>Tailored Menus</h4>
-      <p>Custom dining experiences with bespoke menus designed by our chefs.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h3>Contact Us</h3>
-  <div style="text-align:center;">
-    <p>Kent, United Kingdom</p>
-    <p>01234 567890</p>
-    <p>info@privatediningclub.co.uk</p>
-  </div>
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 The Private Dining Club. Made by Duoo All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+  );
+}
