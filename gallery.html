@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | The Private Dining Club</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      color: #1e3a8a;
+      background-color: #ffffff;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-title img {
+      height: 50px;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .gallery {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <img src="logo.png" alt="Logo" />
+    <h1>The Private Dining Club</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</header>
+
+<main>
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 1">
+    <img src="https://images.unsplash.com/photo-1565895405132-c7a9d0c33da6?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 2">
+    <img src="https://images.unsplash.com/photo-1613145995914-75b3a3dc9429?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 3">
+    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 4">
+    <img src="https://images.unsplash.com/photo-1506355683713-0b4f0c5b2a18?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 5">
+    <img src="https://images.unsplash.com/photo-1606788075761-0e78fbf9aa1d?auto=format&fit=crop&w=800&q=80" alt="Outdoor Catering 6">
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 The Private Dining Club. All rights reserved.<br>Made by <a href="https://www.duoo.co.uk" style="color:white; text-decoration:underline;">www.duoo.co.uk</a></p>
+</footer>
+
+</body>
+</html>
