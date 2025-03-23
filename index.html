@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('show');
+    }
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Private Dining Club</title>
@@ -78,7 +84,32 @@
       padding: 1.5rem 1rem;
       margin-top: 2rem;
     }
-  </style>
+  
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    #mobileNav {
+      display: flex;
+      gap: 1rem;
+    }
+    @media (max-width: 768px) {
+      #mobileNav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      #mobileNav.show {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+        margin-left: auto;
+      }
+    }
+    </style>
 </head>
 <body>
 
@@ -87,7 +118,8 @@
     <img src="logo.png" alt="Logo" />
     <h1>The Private Dining Club</h1>
   </a>
-  <nav>
+  <div class="hamburger" onclick="toggleMobileNav()">☰</div>
+  <nav id="mobileNav">
     <a href="#about">About</a>
     <a href="catering.html">Catering</a>
     <a href="#contact">Contact</a>
@@ -113,10 +145,10 @@
 <section>
   <h2>Visual Taste</h2>
   <div class="photo-grid">
-    <img src="https://images.unsplash.com/photo-1565895405132-c7a9d0c33da6?auto=format&fit=crop&w=800&q=80" alt="Outdoor Dining Setup" />
-    <img src="https://images.unsplash.com/photo-1506355683713-0b4f0c5b2a18?auto=format&fit=crop&w=800&q=80" alt="Catering Service Example" />
-    <img src="https://images.unsplash.com/photo-1613145995914-75b3a3dc9429?auto=format&fit=crop&w=800&q=80" alt="Garden Party Catering" />
-    <img src="https://images.unsplash.com/photo-1606788075761-0e78fbf9aa1d?auto=format&fit=crop&w=800&q=80" alt="Elegant Event Setup" />
+    <img src="https://images.unsplash.com/photo-1625688397368-0cfd1d2b1409?auto=format&fit=crop&w=800&q=80" alt="Outdoor Dining Setup" />
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Catering Service Example" />
+    <img src="https://images.unsplash.com/photo-1547592180-802b0f3c42c3?auto=format&fit=crop&w=800&q=80" alt="Garden Party Catering" />
+    <img src="https://images.unsplash.com/photo-1570215171323-4ec3281b63f4?auto=format&fit=crop&w=800&q=80" alt="Elegant Event Setup" />
   </div>
 </section>
 
