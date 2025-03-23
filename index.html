@@ -10,7 +10,7 @@
     }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       color: #1e3a8a;
       background-color: #ffffff;
     }
@@ -141,7 +141,7 @@
     <h1>The Private Dining Club</h1>
   </div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <nav>
+  <nav style='margin-left:auto;'>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -168,6 +168,36 @@
     The Private Dining Club offers a luxurious outdoor catering experience for private events, celebrations, and corporate functions across Kent. We specialize in fine cuisine, elegant service, and unforgettable memories.
   </p>
 </section>
+
+<section id="gallery" style="background-color:#f8fafc; text-align:center;">
+  <h3>Gallery</h3>
+  <div class="gallery-container" style="position:relative; max-width:800px; margin:auto;">
+    <button onclick="plusSlides(-1)" style="position:absolute; top:50%; left:0; transform:translateY(-50%); font-size:2rem;">&#10094;</button>
+    <img class="gallery-slide" src="https://source.unsplash.com/800x500/?catering,food" style="width:100%; display:block;" />
+    <img class="gallery-slide" src="https://source.unsplash.com/800x500/?gourmet,table" style="width:100%; display:none;" />
+    <img class="gallery-slide" src="https://source.unsplash.com/800x500/?buffet,outdoor" style="width:100%; display:none;" />
+    <button onclick="plusSlides(1)" style="position:absolute; top:50%; right:0; transform:translateY(-50%); font-size:2rem;">&#10095;</button>
+  </div>
+</section>
+
+<script>
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("gallery-slide");
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+</script>
 
 <section id="services" style="background-color:#eff6ff;">
   <h3>Our Services</h3>
